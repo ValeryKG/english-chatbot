@@ -1,94 +1,134 @@
-# English Learning Chatbot
+# English Learning Chatbot with Claude
 
-A Streamlit-based chatbot application for English language learning, powered by OpenAI's GPT-3.5-turbo.
+A Streamlit-based English learning chatbot powered by Anthropic's Claude AI.
 
 ## Features
 
-- 🤖 Interactive chat interface
+- 🤖 Interactive chat with Claude AI
 - 📚 English learning assistance
-- 💬 Conversation practice
-- 📝 Grammar explanations
+- 💬 Natural conversation practice
+- 📝 Grammar explanations and corrections
 - 🎯 Vocabulary building
+- 🔄 Context-aware responses
 
-## Files Structure
+## Quick Start
 
-```
-english-chatbot/
-├── app.py              # Main application
-├── requirements.txt    # Python dependencies
-└── README.md          # This file
-```
+### Option 1: Deploy on Streamlit Cloud (Recommended)
 
-## Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd english-chatbot
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up your API key**
-   
-   Create a `.streamlit/secrets.toml` file in your project directory:
-   ```toml
-   OPENAI_API_KEY = "your-openai-api-key-here"
-   ```
-
-4. **Run the app**
-   ```bash
-   streamlit run app.py
-   ```
-
-## Deployment on Streamlit Cloud
-
-1. **Push your code to GitHub** (without any API keys in the code)
+1. **Fork or clone this repository**
 
 2. **Deploy on Streamlit Cloud:**
    - Go to [share.streamlit.io](https://share.streamlit.io)
    - Connect your GitHub repository
-   - Select your repository and branch
+   - Select this repository
 
-3. **Add your API key securely:**
-   - In your Streamlit Cloud app dashboard
+3. **Add your Anthropic API key:**
+   - In your Streamlit app dashboard
    - Go to "Settings" → "Secrets"
-   - Add your secrets in TOML format:
+   - Add your key:
      ```toml
-     OPENAI_API_KEY = "your-openai-api-key-here"
+     ANTHROPIC_API_KEY = "sk-ant-your-actual-api-key-here"
      ```
 
-## Security Notes
+### Option 2: Run Locally
 
-- ✅ API keys are stored securely in Streamlit secrets
-- ✅ No sensitive information in the codebase
-- ✅ Safe to commit to public repositories
-- ❌ Never hardcode API keys in your code
+1. **Clone and setup:**
+   ```bash
+   git clone <your-repo-url>
+   cd english-learning-chatbot
+   pip install -r requirements.txt
+   ```
 
-## Getting Your OpenAI API Key
+2. **Create secrets file:**
+   ```bash
+   mkdir .streamlit
+   echo 'ANTHROPIC_API_KEY = "sk-ant-your-key-here"' > .streamlit/secrets.toml
+   ```
 
-1. Go to [OpenAI API Keys](https://platform.openai.com/api-keys)
-2. Create a new API key
-3. Copy the key (starts with `sk-`)
-4. Add it to your Streamlit secrets (not your code!)
+3. **Run the app:**
+   ```bash
+   streamlit run app.py
+   ```
 
-## Usage
+## Getting Your Anthropic API Key
 
-1. Open the app
-2. Start typing in the chat input
-3. The AI will respond as an English teacher
-4. Use the sidebar to clear chat or view tips
+1. Go to [Anthropic Console](https://console.anthropic.com/)
+2. Sign up or log in
+3. Go to "API Keys" section
+4. Create a new API key
+5. Copy the key (starts with `sk-ant-`)
 
-## Support
+## Project Structure
 
-If you encounter any issues:
-- Check that your API key is properly set in secrets
-- Ensure you have sufficient OpenAI API credits
-- Verify your internet connection
+```
+english-learning-chatbot/
+├── app.py              # Main Streamlit application
+├── requirements.txt    # Python dependencies
+├── README.md          # This documentation
+└── .streamlit/
+    └── secrets.toml   # API key (local only - not committed)
+```
+
+## Features in Detail
+
+### Chat Interface
+- Clean, intuitive chat interface
+- Message history preservation
+- Context-aware conversations
+
+### Learning Tools
+- Grammar explanations
+- Vocabulary assistance
+- Conversation practice
+- Writing feedback
+- Pronunciation guidance
+
+### Controls
+- Clear conversation
+- Start new topics
+- Message counter
+- Connection status
+
+## Security
+
+- ✅ API keys stored securely in Streamlit secrets
+- ✅ No sensitive data in code repository
+- ✅ Safe for public GitHub repositories
+- ❌ Never hardcode API keys
+
+## Model Information
+
+This app uses **Claude 3 Haiku**, which is:
+- Fast and responsive
+- Cost-effective
+- Excellent for conversational AI
+- Optimized for educational content
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **"API key not found"**
+   - Ensure your key is added to Streamlit secrets
+   - Check the key name is exactly `ANTHROPIC_API_KEY`
+
+2. **"Invalid API key format"**
+   - Anthropic keys start with `sk-ant-`
+   - Make sure you copied the complete key
+
+3. **"Rate limit reached"**
+   - Wait a moment before trying again
+   - Check your Anthropic usage limits
+
+### Support
+
+- [Anthropic Documentation](https://docs.anthropic.com/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+
+## Contributing
+
+Feel free to submit issues and pull requests to improve the application!
 
 ---
 
-**Important:** Never commit API keys to your repository. Always use Streamlit secrets for secure key management.
+**Built with ❤️ using Streamlit and Claude AI**
